@@ -1,3 +1,9 @@
+Gestion Remises
 • En tant qu'acheteur,
 • Je veux pouvoir appliquer mes remises à mon panier,
 • Afin que je bénéficie de réduction.
+
+Gestion des coupons
+• En tant qu'acheteur,
+• Je veux pouvoir utiliser des coupons pour payer mon panier,
+• Afin que je puisse les déduire du montant total.
