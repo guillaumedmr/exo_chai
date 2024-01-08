@@ -1,0 +1,3 @@
+• En tant qu'acheteur,
+• Je veux pouvoir appliquer mes remises à mon panier,
+• Afin que je bénéficie de réduction.
