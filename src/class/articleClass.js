@@ -9,6 +9,10 @@ class Article {
       console.log(`Article: ${this.nom}, Prix: ${this.prix}, Quantité: ${this.quantite}`);
     }
 
+    calculerMontantTotal() {
+    return this.prix * this.quantite;
+  }
+
   }
 
 module.exports = Article;
