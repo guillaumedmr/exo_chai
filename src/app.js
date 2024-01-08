@@ -11,9 +11,11 @@ panier.ajouterArticle(article1);
 panier.ajouterArticle(article2);
 console.log('Montant total du panier: ' + panier.calculerMontantTotal());
 
+panier.appliquerCoupon(100);
+console.log('Montant total du panier après coupon: ' + panier.calculerMontantTotal());
+
 panier.appliquerRemise(10);
 console.log('Montant total du panier après remise: ' + panier.calculerMontantTotal());
-
 
 panier.retirerArticle(article1);
 console.log('Montant total du panier après retrait: ' + panier.calculerMontantTotal());

@@ -1,9 +1,11 @@
 const Remise = require('./remiseClass');
+const Coupon = require('./couponClass');
 
 class Panier {
     constructor() {
       this.articles = [];
       this.remise = null;
+      this.coupon = null;
     }
   
     ajouterArticle(article) {
@@ -40,7 +42,11 @@ class Panier {
 
         if (this.remise) {
             total = this.remise.appliquerRemise(total);
-            }
+        }
+
+        if (this.coupon) {
+            total = this.coupon.appliquerCoupon(total);
+        }
 
         return total;
       }
@@ -48,6 +54,11 @@ class Panier {
       appliquerRemise(taux) {
         this.remise = new Remise(taux);
         console.log(`Remise de ${taux}% appliquée au panier.`);
+      }
+
+      appliquerCoupon(montantReduction) {
+        this.coupon = new Coupon(montantReduction);
+        console.log(`Coupon de ${montantReduction}€ appliqué au panier.`);
       }
 
   }
