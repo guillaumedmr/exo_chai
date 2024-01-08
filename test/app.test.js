@@ -1,23 +1,45 @@
-const Cube = require('../src/app').Cube;
-const expect = require('chai').expect;
+const { expect } = require('chai');
+const Article = require('../src/class/articleClass');
+const Panier = require('../src/class/panierClass');
 
-describe('Testing the Cube Functions', function() {
-    it('1. The side length of the Cube', function(done) {
-        let c1 = new Cube(2);
-        expect(c1.getSideLength()).to.equal(2);
-        done();
-    });
-    
-    it('2. The surface area of the Cube', function(done) {
-        let c2 = new Cube(5);
-        expect(c2.getSurfaceArea()).to.equal(150);
-        done();
-    });
-    
-    it('3. The volume of the Cube', function(done) {
-        let c3 = new Cube(7);
-        expect(c3.getVolume()).to.equal(343);
-        done();
-    });
-    
+describe('Panier', () => {
+  it('ajouterArticle devrait ajouter un article au panier', () => {
+    const panier = new Panier();
+    const article = new Article('Ordinateur portable', 1200, 2);
+
+    panier.ajouterArticle(article);
+
+    expect(panier.articles).to.include(article);
+  });
+
+  it('retirerArticle devrait retirer un article du panier', () => {
+    const panier = new Panier();
+    const article = new Article('Ordinateur portable', 1200, 2);
+
+    panier.ajouterArticle(article);
+    panier.retirerArticle(article);
+
+    expect(panier.articles).to.not.include(article);
+  });
+
+  it('viderPanier devrait vider le panier', () => {
+    const panier = new Panier();
+    const article = new Article('Ordinateur portable', 1200, 2);
+
+    panier.ajouterArticle(article);
+    panier.viderPanier();
+
+    expect(panier.articles).to.be.an('array').that.is.empty;
+  });
+
+  it('calculerMontantTotal devrait calculer le montant total du panier', () => {
+    const panier = new Panier();
+    const article1 = new Article('Ordinateur portable', 1200, 2);
+    const article2 = new Article('Smartphone', 800, 3);
+
+    panier.ajouterArticle(article1);
+    panier.ajouterArticle(article2);
+
+    expect(panier.calculerMontantTotal()).to.equal(2 * 1200 + 3 * 800);
+  });
 });
