@@ -1,21 +1,4 @@
-class Cube {
-    constructor(length) {
-        this.length = length;
-    }
-    
-    getSideLength () {
-        return this.length;
-    }
-    
-    getSurfaceArea () {
-        return (this.length * this.length) * 6;
-    }
-    
-    getVolume () {
-        return Math.pow(this.length,3);
-    }
-}
+const Article = require('./class/articleClass')
 
-module.exports = {
-    Cube:Cube
-}
+const article1 = new Article('Ordinateur portable', 1200, 5);
+article1.afficherDetails();
