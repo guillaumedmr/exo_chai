@@ -1,6 +1,9 @@
+const Remise = require('./remiseClass');
+
 class Panier {
     constructor() {
       this.articles = [];
+      this.remise = null;
     }
   
     ajouterArticle(article) {
@@ -33,8 +36,20 @@ class Panier {
             console.error('La méthode calculerMontantTotal n\'est pas définie sur l\'article.');
           }
         }
+
+
+        if (this.remise) {
+            total = this.remise.appliquerRemise(total);
+            }
+
         return total;
       }
+
+      appliquerRemise(taux) {
+        this.remise = new Remise(taux);
+        console.log(`Remise de ${taux}% appliquée au panier.`);
+      }
+
   }
 
 module.exports = Panier;
